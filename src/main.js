@@ -9,7 +9,7 @@ const frameCount = 202;
 
 const currentFrame = (index) => {
   const indexString = (index + 1).toString().padStart(4, "0");
-  return `/src/LandscapeRender/${indexString.toString()}.png`;
+  return `./src/LandscapeRender/${indexString.toString()}.png`;
 };
 const images = [];
 
@@ -27,7 +27,6 @@ images[0].onload = render;
 
 images[frameCount - 1].addEventListener("load", () => {
   finishLoad();
-  const container = canvas.parentElement;
   gsap.to(landscape, {
     frame: frameCount - 1,
     snap: "frame",
