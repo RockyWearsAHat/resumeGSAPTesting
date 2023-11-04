@@ -9,7 +9,7 @@ const frameCount = 202;
 
 const currentFrame = (index) => {
   const indexString = (index + 1).toString().padStart(4, "0");
-  return `./src/LandscapeRender/${indexString.toString()}.png`;
+  return `./LandscapeRender/${indexString.toString()}.png`;
 };
 const images = [];
 
