@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+#background {
+  height: 500vh;
+  width: 100%;
+  background-color: rgb(44, 40, 78);
+}
+
+#imageSequenceWrap > h2 {
+  display: none;
+}
+
+body {
+  width: calc(min(100vw, 100%));
+  height: calc(min(100vh, 100%));
+  overflow-x: hidden;
+}
+
+#imageSequence {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#contentWrap {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+#loadingWrap {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(34, 39, 49);
+  color: white;
+}
