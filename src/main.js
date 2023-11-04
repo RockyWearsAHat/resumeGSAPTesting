@@ -9,7 +9,15 @@ const frameCount = 202;
 
 const currentFrame = (index) => {
   const indexString = (index + 1).toString().padStart(4, "0");
-  return `/LandscapeRender/${indexString.toString()}.png`;
+  if (
+    process.env.VERCEL_URL != "" &&
+    process.env.VERCEL_URL != null &&
+    process.env.VERCEL_URL != undefined
+  )
+    return `${
+      process.env.VERCEL_URL
+    }/LandscapeRender/${indexString.toString()}.png`;
+  else return `./LandscapeRender/${indexString.toString()}.png`;
 };
 const images = [];
 
