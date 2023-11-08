@@ -9,6 +9,8 @@ const frameCount = 321;
 
 let initialScroll = false;
 
+let animating = false;
+
 const currentFrame = (index) => {
   const indexString = (index + 1).toString().padStart(4, "0");
   return `/LandscapeRender/${indexString.toString()}.png`;
@@ -16,13 +18,17 @@ const currentFrame = (index) => {
 
 let loadedImages = 0;
 const calculateLoadingPercentage = (frameThatLoaded) => {
+  const loadingEndSnapFrame = 20;
   loadedImages++;
-  let percent = loadedImages / (frameCount + 10);
-  if (frameThatLoaded == frameCount - 1) percent = 100;
+  let percent = loadedImages / (frameCount + loadingEndSnapFrame);
+  if (percent == frameCount / (frameCount + loadingEndSnapFrame)) {
+    sessionStorage.setItem("load", 100);
+    document
+      .querySelector(".root")
+      .scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    return;
+  }
   sessionStorage.setItem("load", percent);
-  document
-    .querySelector(".root")
-    .scrollTo({ top: 0, left: 0, behavior: "smooth" });
 };
 
 const images = [];
@@ -72,6 +78,20 @@ function render() {
   ctx.drawImage(images[landscape.frame], 0, 0, canvas.width, canvas.height);
 }
 
+const preventScrollForLoading = (e) => {
+  if (currentTime < 6) {
+    console.log("scrolling!");
+    window.scrollTo(0, 0);
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    setTimeout(() => {
+      currentTime++;
+    }, 1000);
+  }
+};
+
+let currentTime = 0;
 function finishLoad() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;

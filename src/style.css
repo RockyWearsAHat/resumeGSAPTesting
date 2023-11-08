@@ -1,3 +1,11 @@
+.root {
+  --card1Image: url("/LandscapeRender/0001.png");
+  --card2Image: url("/LandscapeRender/0125.png");
+  --card3Image: url("/LandscapeRender/0230.png");
+  --card4Image: url("/LandscapeRender/0300.png");
+  --card5Image: url("/LandscapeRender/0321.png");
+}
+
 .root::-webkit-scrollbar {
   width: 0px;
 }
@@ -39,7 +47,6 @@ body {
 }
 
 #loadingWrap {
-  user-select: none;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -56,6 +63,7 @@ body {
 }
 
 #loadingText {
+  user-select: none;
   text-transform: uppercase;
   font-size: 36px;
   z-index: 200;
@@ -64,6 +72,7 @@ body {
 }
 
 #loadingSubtext {
+  user-select: none;
   text-align: center;
   z-index: 200;
   position: fixed;
@@ -71,6 +80,7 @@ body {
 }
 
 #scrollDownTextWrapper {
+  user-select: none;
   color: white;
   text-transform: uppercase;
   width: 100%;
@@ -86,11 +96,13 @@ body {
 }
 
 #loadingBarWrap {
+  user-select: none;
   position: fixed;
   top: 180px;
 }
 
 #scrollDownArrow {
+  user-select: none;
   position: absolute;
   bottom: -35px;
 }
@@ -99,9 +111,13 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #checkmarkWrapper {
+  user-select: none;
   position: absolute;
   top: -5px;
   left: 8px;
@@ -111,6 +127,96 @@ body {
 }
 
 #checkmarkWrapper > i {
+  user-select: none;
   width: 36px;
   height: 36px;
+}
+
+#footerWrapper {
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#footerWrapper > h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+#cardWrapper {
+  width: 100%;
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 960px;
+  height: 80%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+
+.card {
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: 0.1s ease-out;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1em;
+}
+
+.cardTitle {
+  padding: 10px;
+  padding-top: 50px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: -1px;
+  font-size: 20px;
+  grid-row: 3 / span 1;
+}
+
+.doubleRowCardTitle {
+  grid-row: 6 / span 1;
+}
+
+.card:hover {
+  box-shadow: none;
+  text-shadow: none;
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+#card1 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  gap: 1em;
+  grid-template-rows: repeat(6, 1fr);
+  background: var(--card1Image);
+}
+
+#card2 {
+  grid-row: 1 / span 1;
+  grid-column: 3 / span 1;
+  background: var(--card2Image);
+}
+
+#card3 {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+  background: var(--card3Image);
+}
+
+#card4 {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+  background: var(--card4Image);
+}
+
+#card5 {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 2;
+  background: var(--card5Image);
 }
